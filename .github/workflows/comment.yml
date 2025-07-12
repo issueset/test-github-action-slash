@@ -33,6 +33,3 @@ jobs:
         run: |
           bash scripts/pr-command.sh
 
-      - name: push the code
-        run: |
-          git pus
