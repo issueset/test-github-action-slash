@@ -25,11 +25,15 @@ jobs:
           git checkout $BRANCH_NAME
           git log -n 3
 
-      - name: Commit the code 
+      - name: Commit the code
         run: |
           date >> README.md
+
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+
           git commit -am "commit from bot"
-      
-      - name: push the code 
+
+      - name: push the code
         run: |
           git push
