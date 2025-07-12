@@ -42,4 +42,4 @@ jobs:
 
       - name: push the code
         run: |
-          git push
+          git push --set-upstream origin "$GIT_PR_BRANCH_NAME"
