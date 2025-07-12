@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-
       - name: Checkout repository
         uses: actions/checkout@v4
-       
+
       - name: Get PR branch and checkout
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,13 +27,12 @@ jobs:
           git log -n 3
 
       - name: Checkout repository
-        run: | 
+        run: |
           git fetch --all
           git checkout "$GIT_PR_BRANCH_NAME"
 
       - name: Commit the code
         run: |
-          cd /tmp/test-github-action-slash
           date >> README.md
 
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -45,5 +42,4 @@ jobs:
 
       - name: push the code
         run: |
-          cd /tmp/test-github-action-slash
           git push
