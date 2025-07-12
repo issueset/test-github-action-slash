@@ -30,8 +30,8 @@ jobs:
 
       - name: Checkout repository
         run: | 
-          cd /tmp
-          git clone https://github.com/issueset/test-github-action-slash.git -b "$GIT_PR_BRANCH_NAME"
+          git fetch --all
+          git checkout "$GIT_PR_BRANCH_NAME"
 
       - name: Commit the code
         run: |
