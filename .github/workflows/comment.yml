@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-command:
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '/docs')
+    if: github.event.issue.pull_request && github.event.comment.body ==  '/docs'
     runs-on: ubuntu-latest
 
     steps:
@@ -31,5 +31,6 @@ jobs:
 
       - name: Run the script
         run: |
-          bash scripts/pr-command.sh
-
+          bash scripts/pr-command.sh "$SLASH_COMMAND"
+        env:
+          SLASH_COMMAND: ${{ github.event.comment.body }}
