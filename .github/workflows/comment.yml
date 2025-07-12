@@ -28,7 +28,7 @@ jobs:
       - name: Commit the code 
         run: |
           date >> README.md
-          git add -am "commit from bot"
+          git commit -am "commit from bot"
       
       - name: push the code 
         run: |
